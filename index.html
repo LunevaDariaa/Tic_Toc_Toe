@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic-Toc-Toe</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Rubik+Doodle+Shadow:regular"
+      rel="stylesheet"
+    />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">Tic - Toc - Toe</div>
+    </header>
+    <main>
+      <div class="choose_player">
+        <form>
+          <div class="player player-1">
+            <label for="player-1">Player 1</label>
+            <input type="text" placeholder="Name" />
+          </div>
+          <div class="player player-2">
+            <label for="player-2">Player 2</label>
+            <input type="text" placeholder="Name" />
+          </div>
+        </form>
+      </div>
+
+      <div class="grid-container">
+        <div class="grid-row">
+          <div class="cell" data-num="1"></div>
+          <div class="cell" data-num="2"></div>
+          <div class="cell" data-num="3"></div>
+        </div>
+
+        <div class="grid-row">
+          <div class="cell" data-num="4"></div>
+          <div class="cell" data-num="5"></div>
+          <div class="cell" data-num="6"></div>
+        </div>
+
+        <div class="grid-row">
+          <div class="cell" data-num="7"></div>
+          <div class="cell" data-num="8"></div>
+          <div class="cell" data-num="9"></div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
