@@ -133,8 +133,7 @@ table {
 /* Content */
 
 header {
-  @import url(https://fonts.googleapis.com/css?family=Rubik+Doodle+Shadow:regular);
-  background-color: rgb(233, 207, 225);
+  background-color: rgb(210, 225, 232);
   height: 80px;
   font-size: 50px;
   text-align: center;
@@ -163,7 +162,28 @@ header {
   height: 140px;
   background-color: rgb(255, 255, 255);
   border: 5px solid black;
-  background-image: url("photos/Null-1.png");
+  /* background-image: url("photos/Null-1.png"); */
   background-size: cover;
   background-position: center;
+  font-size: 170px;
+  padding: 20px;
+  text-align: center;
+  /* padding: 20px; */
+}
+
+.start-btn {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 14px;
+  border: 1px solid rgb(174, 156, 156);
+  font-weight: bold;
+}
+
+.active-player {
+  background-color: rgb(136, 132, 132);
+}
+
+.form {
+  display: flex;
+  justify-content: center;
 }

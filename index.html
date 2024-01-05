@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic-Toc-Toe</title>
     <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Rubik+Doodle+Shadow:regular"
-      rel="stylesheet"
-    />
-    <script src="script.js" defer></script>
   </head>
   <body>
     <header>
@@ -17,37 +12,54 @@
     </header>
     <main>
       <div class="choose_player">
-        <form>
-          <div class="player player-1">
-            <label for="player-1">Player 1</label>
-            <input type="text" placeholder="Name" />
+        <div class="form">
+          <div class="player player-1-class">
+            <label for="player--1">Player 1</label>
+            <input
+              id="player--1"
+              name="player--1"
+              class="active-player"
+              type="text"
+              placeholder="Name"
+              required
+            />
           </div>
-          <div class="player player-2">
-            <label for="player-2">Player 2</label>
-            <input type="text" placeholder="Name" />
+          <div class="player player-2-class">
+            <label for="player--2">Player 2</label>
+            <input
+              id="player--2"
+              name="player--2"
+              type="text"
+              placeholder="Name"
+              required
+            />
           </div>
-        </form>
+          <button class="start-btn">Start Game</button>
+        </div>
       </div>
 
       <div class="grid-container">
         <div class="grid-row">
+          <div class="cell" data-num="0"></div>
           <div class="cell" data-num="1"></div>
           <div class="cell" data-num="2"></div>
-          <div class="cell" data-num="3"></div>
         </div>
 
         <div class="grid-row">
+          <div class="cell" data-num="3"></div>
           <div class="cell" data-num="4"></div>
           <div class="cell" data-num="5"></div>
-          <div class="cell" data-num="6"></div>
         </div>
 
         <div class="grid-row">
+          <div class="cell" data-num="6"></div>
           <div class="cell" data-num="7"></div>
           <div class="cell" data-num="8"></div>
-          <div class="cell" data-num="9"></div>
         </div>
       </div>
+
+      <button class="restart-btn">Restart</button>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>
