@@ -1,9 +1,14 @@
+const cells = document.querySelectorAll(".cell");
+const startBtn = document.querySelector(".start-btn");
+const gridConteiner = document.querySelector(".grid-container");
+const restartBtn = document.querySelector(".restart-btn");
 const createPlayer = function (name, mark) {
   return { name, mark };
 };
 const Game = {
   players: [],
   currentPlayer: 0,
+  gameOver: false,
   gameBoard: ["", "", "", "", "", "", "", "", ""],
 
   winningPositions: [
@@ -17,6 +22,38 @@ const Game = {
     [2, 4, 6],
   ],
 
+  defineWinner() {
+    for (const position of this.winningPositions) {
+      const [a, b, c] = position;
+
+      if (
+        this.gameBoard[a] === "X" &&
+        this.gameBoard[b] === "X" &&
+        this.gameBoard[c] === "X"
+      ) {
+        this.gameOver = true;
+        alert(`Winner is ${this.players[0].name}`);
+      }
+      if (
+        this.gameBoard[a] === "0" &&
+        this.gameBoard[b] === "0" &&
+        this.gameBoard[c] === "0"
+      ) {
+        this.gameOver = true;
+        console.log(`Winner is ${this.players[1].name}`);
+      }
+    }
+  },
+
+  restart() {
+    this.gameBoard = ["", "", "", "", "", "", "", "", ""];
+    cells.forEach(function (cell) {
+      cell.textContent = "";
+    });
+    this.gameOver = false;
+    console.log(this.gameBoard);
+  },
+
   start() {
     this.players = [
       createPlayer(document.querySelector("#player--1").value, "X"),
@@ -25,7 +62,9 @@ const Game = {
   },
 
   handleClick(e) {
-    // console.log(e.target.dataset.num);
+    if (this.gameOver) {
+      return;
+    }
     const cellIndex = e.target.dataset.num;
     if (this.gameBoard[cellIndex] === "") {
       this.gameBoard[cellIndex] = this.players[this.currentPlayer].mark;
@@ -33,23 +72,20 @@ const Game = {
     }
 
     this.currentPlayer = this.currentPlayer === 0 ? 1 : 0;
-    console.log(Game);
+    this.defineWinner();
   },
 
   clicked() {
-    const cells = document.querySelectorAll(".cell");
     cells.forEach((cell) => {
       cell.addEventListener("click", this.handleClick.bind(this));
     });
   },
 };
 
-const startBtn = document.querySelector(".start-btn");
-const gridConteiner = document.querySelector(".grid-container");
-
 startBtn.addEventListener("click", function (e) {
   e.preventDefault();
   Game.start();
   Game.clicked();
-  console.log(Game);
 });
+
+restartBtn.addEventListener("click", Game.restart);
