@@ -1,3 +1,4 @@
+"use strict";
 const cells = document.querySelectorAll(".cell");
 const startBtn = document.querySelector(".start-btn");
 const gridConteiner = document.querySelector(".grid-container");
@@ -5,6 +6,7 @@ const restartBtn = document.querySelector(".restart-btn");
 const createPlayer = function (name, mark) {
   return { name, mark };
 };
+
 const Game = {
   players: [],
   currentPlayer: 0,
@@ -51,7 +53,6 @@ const Game = {
       cell.textContent = "";
     });
     this.gameOver = false;
-    console.log(this.gameBoard);
   },
 
   start() {
@@ -77,6 +78,7 @@ const Game = {
 
   clicked() {
     cells.forEach((cell) => {
+      // cell.removeEventListener("click", this.handleClick.bind(this));
       cell.addEventListener("click", this.handleClick.bind(this));
     });
   },
@@ -88,4 +90,7 @@ startBtn.addEventListener("click", function (e) {
   Game.clicked();
 });
 
-restartBtn.addEventListener("click", Game.restart);
+restartBtn.addEventListener("click", function () {
+  Game.restart();
+  Game.clicked();
+});
